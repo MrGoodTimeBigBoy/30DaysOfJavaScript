@@ -1,17 +1,24 @@
 let monthPrompt
 let dayCount
 monthPrompt=prompt("Pray ye, what month is it?")
-let monthPick=monthPrompt.toLowerCase()
+
+function titleCase(str) {
+    return str.toLowerCase().split(' ').map(function(word) {
+      return word.replace(word[0], word[0].toUpperCase());
+    }).join(' ');
+  }
+
+let monthPick=titleCase(monthPrompt)
 switch(monthPick){
-    case 'december':
+    case 'December':
         console.log('Winter')
         dayCount=31
         break
-    case 'january':
+    case 'January':
         console.log('Fools Spring')
         dayCount=31
         break
-    case 'february':
+    case 'February':
         console.log('Second Winter')
         let yearPrompt = prompt('And the year?')
         const yearMod = yearPrompt%4
@@ -27,39 +34,39 @@ switch(monthPick){
             dayCount=28
         }
         break
-    case 'march':
+    case 'March':
         console.log('Spring of Deception')
         dayCount=31
         break
-    case 'april':
+    case 'April':
         console.log('Third Winter')
         dayCount=30
         break
-    case 'may':
+    case 'May':
         console.log('The Pollening')
         dayCount=31
         break
-    case 'june':
+    case 'June':
         console.log('Actual Spring')
         dayCount=30
         break
-    case 'july':
+    case 'July':
         console.log('Summer')
         dayCount=31
         break
-    case 'august':
+    case 'August':
         console.log('Hell\'s Front Porch')
         dayCount=31
         break
-    case 'september':
+    case 'September':
         console.log('False Fall')
         dayCount=30
         break
-    case 'october':
+    case 'October':
         console.log('Second Summer')
         dayCount=31
         break
-    case 'november':
+    case 'November':
         console.log('Actual Fall')
         dayCount=30
         break
