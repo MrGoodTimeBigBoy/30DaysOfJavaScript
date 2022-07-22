@@ -36,8 +36,9 @@ a<b ? console.log('A is less than B') : a>b ? console.log('A is greater than B')
 
 //Question 4:
 
-const myNumber = prompt("Pick a number, any number","just an integer smart guy")
-let numMod = myNumber%2
+let myNumber 
+//myNumber = prompt("Pick a number, any number","just an integer smart guy")
 //let testMod = 6.5%2
 //console.log(`${testMod}`)
+let numMod = myNumber%2
 !numMod ? console.log("That's an even number") : numMod==1 ? console.log("That's an odd number") : console.log("What did I fucking tell you?")
