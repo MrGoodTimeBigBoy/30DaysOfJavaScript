@@ -1,0 +1,16 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Math Functions Experiment</title>
+    </head>
+    <body>
+        <script src='https://cdn.jsdelivr.net/npm/bignumber.js@9.0.2/bignumber.min.js'>
+            function log(base,argument){
+    let logarithm = new BigNumber(Math.log(argument)/Math.log(base))
+    return logarithm
+            }
+            console.log('The answer is '+ log(3,81))
+        </script>
+    </body>
+</html>
