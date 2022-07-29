@@ -25,9 +25,25 @@ for (const name of moreCountries) {
 }
 console.log(`The longest country name is '${longestArray[1]}' with a length of ${longestArray[0]} characters.`)
 
-//6
+//6 its exactly the same as 4?
+
+//7
 const foursArray = []
 for (const name of moreCountries) {
     (name.length==4) ? foursArray.push(name) : console.log('moving along')
 }
 console.log(foursArray)
+
+//8
+const twoWordsArray = []
+for (const name of moreCountries) {
+    (name.includes(' ') || name.includes('-')) ? twoWordsArray.push(name) : "moving along"
+}
+console.log(twoWordsArray)
+
+//9
+reverseArray = []
+while (moreCountries.length>0) {
+    reverseArray.push(moreCountries.pop().toUpperCase())
+}
+console.log(reverseArray)
