@@ -66,7 +66,14 @@ for(let i = 0; i<primes.length; i++){
     console.log(primes[i])
 }
 
-//10
+/*
+for(let i = 0; i < 101; i += 1){
+    let isPrime = true;
+    // inner loop, check if every number from 2-i divides evenly into i, if so isPrime=false, break
+   if(isPrime) { /* ... */    
+
+
+  //10
 let sum = 0
 for(let i = 0; i<=100; i++){
     sum = sum+i
