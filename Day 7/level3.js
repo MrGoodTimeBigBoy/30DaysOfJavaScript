@@ -249,3 +249,30 @@ function typeUnique(array){
     return type
 }
 console.log(typeUnique(typeArray))
+
+//18
+
+function isValidVariable(variable) {
+    let regexp = /[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_]/gi
+    let clean = variable.replace(regexp,'')
+    if (clean.length == 0){
+        console.log('This is an acceptable variable name')
+    } else {
+        console.log('This is not an acceptable variable name')
+    }
+}
+
+isValidVariable('thisOne')
+
+//19
+
+function sevenRandos(){
+    let digits = [0,1,2,3,4,5,6,7,8,9]
+    let outputs = []
+    for (i=0; i<7; i++){
+        outputs.push(digits.splice(Math.floor(Math.random()*digits.length),1).join())
+    }
+    return outputs
+}
+
+console.log(sevenRandos())
