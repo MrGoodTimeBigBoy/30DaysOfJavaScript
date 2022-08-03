@@ -71,9 +71,9 @@ console.log(arrayOfRgbColors(3))
 function convertHexaToRgb(hexa){
     console.log(`test: ${hexa}`)
     let colorArray=[]
-    colorArray.push(parseInt(hexa[1],16)*parseInt(hexa[2],16))
-    colorArray.push(parseInt(hexa[3],16)*parseInt(hexa[4],16))
-    colorArray.push(parseInt(hexa[5],16)*parseInt(hexa[6],16))
+    colorArray.push(parseInt(hexa.substring(1,3),16))
+    colorArray.push(parseInt(hexa.substring(3,5),16))
+    colorArray.push(parseInt(hexa.substring(5,7),16))
     return `rgb(${colorArray.join(',')})`
 }
 
@@ -276,3 +276,7 @@ function sevenRandos(){
 }
 
 console.log(sevenRandos())
+
+//20
+
+//didn't I reverse something already?
