@@ -179,3 +179,18 @@ function randomMacAddress(){
 }
 
 console.log(randomMacAddress())
+
+//17
+
+function userIdGenerator(){
+    const charactersAskArray = ['0','1','2','3','4','5','6','7','8','9','0','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    const charOutputAskArray = []
+    let passLength = 7
+    do {
+        character = Math.floor(Math.random()*37)
+        charOutputAskArray.push(charactersAskArray[character])
+    } while (charOutputAskArray.length<passLength)
+    return charOutputAskArray.join('')
+}
+
+console.log(userIdGenerator())
