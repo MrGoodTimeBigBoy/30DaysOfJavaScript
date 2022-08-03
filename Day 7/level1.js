@@ -48,84 +48,120 @@ console.log(volumeOfRectPrism(10,3,4))
 
 //7
 
-function capitalizeArray(array) {
-    const arrayCaps = []
-    for (item of array) {
-        arrayCaps.push(item.toUpperCase())
-    }
-    return arrayCaps
+function areaOfCircle(r) {
+    return Math.PI*r**2
 }
 
-const words = ['hello','goodbye','yes','no']
-console.log(capitalizeArray(words))
+console.log(areaOfCircle(4))
 
 //8
 
-function addItem(item,array) {
-    array.push(item)
-    return array
+function circumOfCircle(r){
+    return 2*Math.PI*r
 }
 
-console.log(addItem('maybe', words))
+console.log(circumOfCircle(3))
 
 //9
 
-function removeItem(index,array) {
-    array.splice(index,1)
-    return array
+function density(mass,volume){
+    return mass/volume
 }
 
-console.log(removeItem(3,words))
+console.log(density(100,volumeOfRectPrism(2,2,2)))
 
 //10
 
-function sumOfNumbers(number){
-    let sum = 0
-    for (let i=0; i <= number; i++){
-        sum += i
-    }
-    return sum
+function speed(distance,time){
+    return distance/time
 }
 
-console.log(sumOfNumbers(6))
+console.log(`You were travelling at a rate of ${speed(100,2)} MPH`)
 
 //11
 
-function sumofOdds(number){
-    let sum = 0
-    for (let i = 0; i <= number; i++){
-        if (i%2){
-            sum += i
-        }
-    }
-    return sum
-}
-
-console.log(sumofOdds(5))
+//ok I get it
 
 //12
 
-function sumOfEvens(number){
-    let sum = 0
-    for (let i = 0; i <= number; i++){
-        if (!i%2){
-            sum += i
-        }
-    }
-    return sum
-}
-
-console.log(sumOfEvens(4))
+//ok I get it
 
 //13
 
-function evensAndOdds(number){
-    let evens = 0
-    let odds = 0
-    for (let i = 0; i <= number; i++){
-        (i%2) ? odds++ : evens++
+function bmi(weight,height){
+    let value = weight/(height**2)
+    if (value<18.5) {
+        console.log('Your BMI is Underwieght')
+    } else if (value<25) {
+        console.log('Your BMI is Normal')
+    } else if (value<30) {
+        console.log('Your BMI is Overweight')
+    } else {
+        console.log('Your BMI is Obese')
     }
-    console.log(`The number of odds are ${odds}\nThe Number of evens is ${evens}`)
 }
 
-evensAndOdds(100)
+bmi(60,1.7)
+
+//14
+
+function checkSeason(month){
+switch(month) {
+    case 'January':
+        console.log('It is Winter')
+        break
+    case 'February':
+        console.log('It is Winter')
+        break
+    case 'March':
+        console.log('It is Winter')
+        break
+    case 'April':
+        console.log('It is Spring')
+        break
+    case 'May':
+        console.log('It is Spring')
+        break
+    case 'June':
+        console.log('It is Spring')
+        break
+    case 'July':
+        console.log('It is Summer')
+        break
+    case 'August':
+        console.log('It is Summer')
+        break
+    case 'September':
+        console.log('It is Summer')
+        break
+    case 'October':
+        console.log('It is Autumn')
+        break
+    case 'November':
+        console.log('It is Autumn')
+        break
+    case 'December':
+        console.log('It is Autumn')
+        break
+    default:
+        console.log('You did not enter a valid month')
+}
+}
+
+checkSeason('January')
+
+//15
+
+function findMax(num1,num2,num3){
+    let largest
+    largest = num1
+    if (num2>largest){
+        largest = num2
+    }
+    if (num3>largest){
+        largest = num3
+    }
+    return largest
+}
+
+console.log(findMax(-8,-7,-9))
