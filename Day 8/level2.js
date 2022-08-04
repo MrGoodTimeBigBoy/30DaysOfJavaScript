@@ -51,9 +51,72 @@ const users = {
     }
   }
 
-  let names = Object.values(users)
-  console.log(names)
-  for (const person of names){
-    skillsList = person.skills.length
-    console.log(skillsList)
+
+let info = Object.values(users)
+console.log(info)
+let names = Object.keys(users)
+console.log(names)
+for (const person of info){
+  skillsList = person.skills.length
+  console.log(skillsList)
+}
+
+//2
+function loggedInUsers(){
+  let loggedInCount = 0
+  for (const person of info){
+    if (person.isLoggedIn == true) {
+      loggedInCount++
+    }
   }
+  return `users logged in: ${loggedInCount}`
+}
+
+console.log(loggedInUsers())
+
+function highScores(){
+  let highScoreCount = 0
+  for (const person of info){
+    if (person.points >= 50) {
+      highScoreCount++
+    }
+  }
+  return `hi scorers: ${highScoreCount}`
+}
+
+console.log(highScores())
+
+//3
+function mernDevs(){
+  let mernDevCount = 0
+  for (const person of info){
+    if (person.skills.includes('MongoDB')&&person.skills.includes('Express')&&person.skills.includes('React')&&person.skills.includes('Node')){
+      mernDevCount++
+    }
+  }
+  return `MERN devs: ${mernDevCount}`
+}
+
+console.log(mernDevs())
+
+//4
+
+const usersCopy = Object.assign({}, users)
+usersCopy.Ian = {
+  email: 'ian@ian.com',
+  skills: ['scribblin','Python','JavaScript'],
+  age: 38,
+  isLoggedIn: true,
+  points: 10
+}
+console.log(usersCopy)
+
+//5 see 1
+//6 see 1
+//7 literally what are they talking about? should I make an object just to print information from it?
+// How about this, why don't I print my age and second skill, hmmm?
+
+function flex(){
+  return `hey, have you heard that I'm ${usersCopy.Ian.age} years old and have vague knowledge of ${usersCopy.Ian.skills[1]}?`
+}
+console.log(flex())
