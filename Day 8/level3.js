@@ -145,7 +145,7 @@ function signUp(){
     }
 }
 
-signUp()
+//signUp()
 console.log(users2[(users2.length-1)])
 
 function randomUserID(){
@@ -177,6 +177,38 @@ function showDateTime(){
     return `${formatMonth}/${formatDay}/${formatYear} ${formatHour}:${formatMinute}`
     }
 
+
 theDate = new Date()
 console.log(theDate.getMonth())
+
+function signIn(){
+    const inputName = prompt('Enter your Username')
+    const inputPassword = prompt ('Enter your password')
+    checkSign(inputName, inputPassword)
+}
+
+function checkSign(takeName,takePassword){
+    let isMatch = false
+    let correctPassword = false
+    for (item of users2){
+        if (item.username == takeName){
+            isMatch = true
+            if (item.password == takePassword){
+                correctPassword = true
+                item.isLoggedIn = true
+                console.log('Logged In')
+            } else {
+                console.log('Incorrect password')
+            }
+        } else {
+            console.log('Username not found')
+        }
+        break
+    }
+    if (isMatch&&correctPassword) {
+        console.log('Welcome')
+    }
+}
+
+signIn()
 console.log(users2)
