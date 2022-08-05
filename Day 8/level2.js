@@ -129,6 +129,8 @@ function sayCountry(name){
   }
 }
 
+//to correctly end the sentence, I should make a function to take the languages array, pop off the last one, then stitch them together with 'and' 
+
 sayCountry('Albania')
 
 sayCountry('American Samoa')
