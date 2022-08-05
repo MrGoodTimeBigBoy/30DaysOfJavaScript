@@ -45,7 +45,7 @@ personAccount.addExpense(400)
 console.log(personAccount.accountBalance())
 
 //2
-const users = [
+const users2 = [
     {
         _id: 'ab12ex',
         username: 'Alex',
@@ -119,7 +119,12 @@ const users = [
 ]
 
 function signUp(){
-    prompt('Enter a new user name')
+    const newName = prompt('Enter a new user name')
     let repeat = false
-    for (Name of users){}
+    for (Name of users2){
+        if (Name == newName){
+            repeat = true
+        }
+    }
+    
 }

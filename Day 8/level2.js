@@ -113,10 +113,22 @@ console.log(usersCopy)
 
 //5 see 1
 //6 see 1
-//7 literally what are they talking about? should I make an object just to print information from it?
-// How about this, why don't I print my age and second skill, hmmm?
+//7 
 
-function flex(){
-  return `hey, have you heard that I'm ${usersCopy.Ian.age} years old and have vague knowledge of ${usersCopy.Ian.skills[1]}?`
+function sayCountry(name){
+  const countryValues = Object.values(countries);
+
+ for(const countryVal of countryValues){
+    let languageEnding = ' is'
+    if (countryVal.name == name){
+      if (countryVal.languages.length>1){
+        languageEnding = 's are'
+      }
+      console.log(`Ah yes, ${countryVal.name}. Their capital is ${countryVal.capital}, population is ${countryVal.population} and language${languageEnding} ${countryVal.languages.join(', ')}.`)
+    }
+  }
 }
-console.log(flex())
+
+sayCountry('Albania')
+
+sayCountry('American Samoa')
