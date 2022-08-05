@@ -251,3 +251,21 @@ function averageRating(productInput) {
 
 console.log(averageRating('mobile phone'))
 
+function likeProduct(productInput) {
+    for (item of products){
+        if (item.name == productInput){
+            let isLiked = item.likes.indexOf(loggedID)
+            if (isLiked == -1) {
+                item.likes.push(loggedID)
+            } else {
+                item.likes.splice(isLiked,1)
+            }
+        console.log(`likes now read '${item.likes.join(',')}'`)
+        }
+    }
+}
+
+likeProduct('mobile phone')
+
+likeProduct('TV')
+likeProduct('TV')
