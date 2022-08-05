@@ -187,6 +187,8 @@ function signIn(){
     checkSign(inputName, inputPassword)
 }
 
+let loggedID = 'testID'
+
 function checkSign(takeName,takePassword){
     let isMatch = false
     let correctPassword = false
@@ -196,6 +198,7 @@ function checkSign(takeName,takePassword){
             if (item.password == takePassword){
                 correctPassword = true
                 item.isLoggedIn = true
+                loggedID = item._id
                 console.log('Logged In')
             } else {
                 console.log('Incorrect password')
@@ -206,9 +209,45 @@ function checkSign(takeName,takePassword){
         break
     }
     if (isMatch&&correctPassword) {
-        console.log('Welcome')
+        console.log(`Welcome ${loggedID}`)
     }
 }
 
-signIn()
+
+//signIn()
 console.log(users2)
+
+//3
+console.log('3')
+
+function rateProduct(productInput, ratingInput) {
+    for (item of products){
+        if (item.name == productInput){
+            item.ratings.push({
+                userId: loggedID,
+                rate: ratingInput
+            })
+            console.log('Item Rated')
+            console.log(`${item.name} now has ${item.ratings.length} ratings`)
+        }
+    }
+}
+
+rateProduct('mobile phone',4)
+
+function averageRating(productInput) {
+    itemAverage = 'Item not found'
+    for (item of products){
+        if (item.name == productInput){
+            itemSum = 0
+            for (const num of item.ratings){
+                itemSum+=num.rate
+            }
+            itemAverage = (itemSum/item.ratings.length)
+        }
+    }
+    return itemAverage
+}
+
+console.log(averageRating('mobile phone'))
+
