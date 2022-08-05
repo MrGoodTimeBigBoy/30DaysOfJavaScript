@@ -44,7 +44,10 @@ console.log(personAccount.accountBalance())
 personAccount.addExpense(400)
 console.log(personAccount.accountBalance())
 
+
 //2
+
+console.log('2')
 const users2 = [
     {
         _id: 'ab12ex',
@@ -120,11 +123,60 @@ const users2 = [
 
 function signUp(){
     const newName = prompt('Enter a new user name')
-    let repeat = false
-    for (Name of users2){
-        if (Name == newName){
-            repeat = true
+    let isMatch = false
+    for (item of users2){
+        if (item.username == newName){
+            isMatch = true
+            console.log('hit')
         }
     }
-    
+    console.log(isMatch)
+    if (isMatch == true){
+        console.log('This name is already in use.')
+    } else if (isMatch == false) {
+        users2.push({
+            _id: randomUserID(),
+            username: newName,
+            email: `${newName}@${newName}.com`,
+            password: randomPassword(),
+            createdAt: showDateTime(),
+            isLoggedIn: false
+        })
+    }
 }
+
+signUp()
+console.log(users2[(users2.length-1)])
+
+function randomUserID(){
+    const charactersAskArray = ['0','1','2','3','4','5','6','7','8','9','0','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    let passLength = 6
+    const charOutputAskArray = []
+    do   {
+        character = Math.floor(Math.random()*37)
+        charOutputAskArray.push(charactersAskArray[character])
+    } while (charOutputAskArray.length<passLength)
+    return charOutputAskArray.join('')
+}
+
+function randomPassword(){
+    const passwordOutput =[]
+    for (i=0; i<6; i++){
+        passwordOutput.push(Math.floor(Math.random()*10))
+    }
+    return passwordOutput.join('')
+}
+
+function showDateTime(){
+    const today = new Date()
+    const formatYear = String(today.getFullYear()).padStart(4,'0')
+    const formatMonth = (today.getMonth()+1).toString().padStart(2,'0')
+    const formatDay = String(today.getDate()).padStart(2,'0')
+    const formatHour = String(today.getHours()).padStart(2,'0')
+    const formatMinute = today.getMinutes().toString().padStart(2,'0')
+    return `${formatMonth}/${formatDay}/${formatYear} ${formatHour}:${formatMinute}`
+    }
+
+theDate = new Date()
+console.log(theDate.getMonth())
+console.log(users2)
