@@ -61,3 +61,16 @@ function getLastTenCountries (array){
 }
 
 console.log(getLastTenCountries(countriesAll))
+
+//7
+
+const mostUsed = array => {
+    const lettersSorted = letterCountries.sort((a,b) => {
+        if (a.Occurances < b.Occurances) return 1
+        if (a.Occurances > b.Occurances) return -1
+        return 0
+    })
+    return `The most used initial was ${lettersSorted[0].Letter} with ${lettersSorted[0].Occurances} occurances`
+}
+
+console.log(mostUsed())
