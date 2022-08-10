@@ -76,17 +76,60 @@ const statistics = {
     },
     sum: function() {
         return ages.reduce((acc,cur) => acc+ cur, 0)
+    },
+    min: function(){
+        return ages.sort()[0]
+    },
+    max: function(){
+        return ages.sort()[ages.length-1]
+    },
+    range: function(){
+        return this.max() - this.min()
+    },
+    mean: function(){
+        return this.sum()/this.count()
+    },
+    median: function(){
+        let amount = 0
+        if (this.count()%2){
+            amount = ages.sort()[(this.count()-1)/2]
+        } else {
+            amount = (ages.sort()[this.count()/2] + ages.sort()[this.count()/2 + 1])/2
+        }
+        return amount
+    },
+    mode: function(){
+        const modeData = []
+        ages.forEach((num) => {
+            const agesCopy = [...ages]
+            const modeCount = agesCopy.filter((entry) => entry==num).length
+            const outputArray = {
+                mode: num,
+                count: modeCount
+            }
+            modeData.push(outputArray)
+        })
+        modeData.sort((a,b) => {
+            if (a.count < b.count) return 1
+            if (a.count > b.count) return -1
+            return 0
+        })
+        return modeData[0]
     }
 }
 
+
+
+
+
 console.log('Count:', statistics.count()) // 25
 console.log('Sum: ', statistics.sum()) // 744
-//console.log('Min: ', statistics.min()) // 24
-//console.log('Max: ', statistics.max()) // 38
-//console.log('Range: ', statistics.range() // 14
-//console.log('Mean: ', statistics.mean()) // 30
-//console.log('Median: ',statistics.median()) // 29
-//console.log('Mode: ', statistics.mode()) // {'mode': 26, 'count': 5}
+console.log('Min: ', statistics.min()) // 24
+console.log('Max: ', statistics.max()) // 38
+console.log('Range: ', statistics.range()) // 14
+console.log('Mean: ', statistics.mean()) // 30
+console.log('Median: ',statistics.median()) // 29
+console.log('Mode: ', statistics.mode()) // {'mode': 26, 'count': 5}
 //console.log('Variance: ',statistics.var()) // 17.5
 //console.log('Standard Deviation: ', statistics.std()) // 4.2
 //console.log('Variance: ',statistics.var()) // 17.5
