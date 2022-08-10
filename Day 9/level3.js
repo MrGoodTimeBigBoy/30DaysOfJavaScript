@@ -87,7 +87,7 @@ const statistics = {
         return this.max() - this.min()
     },
     mean: function(){
-        return this.sum()/this.count()
+        return parseInt(this.sum()/this.count())
     },
     median: function(){
         let amount = 0
@@ -115,6 +115,13 @@ const statistics = {
             return 0
         })
         return modeData[0]
+    },
+    var: function(){
+        const varArray = ages.map((item) => (item - this.mean())**2)
+        return varArray.reduce((acc,cur) => acc+cur, 0)/this.count()
+    },
+    std: function(){
+        return Math.sqrt(this.var())
     }
 }
 
@@ -130,7 +137,7 @@ console.log('Range: ', statistics.range()) // 14
 console.log('Mean: ', statistics.mean()) // 30
 console.log('Median: ',statistics.median()) // 29
 console.log('Mode: ', statistics.mode()) // {'mode': 26, 'count': 5}
-//console.log('Variance: ',statistics.var()) // 17.5
-//console.log('Standard Deviation: ', statistics.std()) // 4.2
+console.log('Variance: ',statistics.var()) // 17.5
+console.log('Standard Deviation: ', statistics.std()) // 4.2
 //console.log('Variance: ',statistics.var()) // 17.5
 //console.log('Frequency Distribution: ',statistics.freqDist()) # [(20.0, 26), (16.0, 27), (12.0, 32), (8.0, 37), (8.0, 34), (8.0, 33), (8.0, 31), (8.0, 24), (4.0, 38), (4.0, 29), (4.0, 25)]
