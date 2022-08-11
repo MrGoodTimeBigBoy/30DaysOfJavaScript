@@ -114,6 +114,7 @@ const statistics = {
             if (a.count > b.count) return -1
             return 0
         })
+        console.log(modeData)
         return modeData[0]
     },
     var: function(){
@@ -122,6 +123,28 @@ const statistics = {
     },
     std: function(){
         return Math.sqrt(this.var())
+    },
+    freqDist(){
+        const freqDistData = []
+        ages.forEach((num => {
+            const agesCopy = [...ages]
+            const freqCount = agesCopy.filter((entry) => entry==num).length
+            const outputArray = [ (freqCount/this.count()*100),num]
+            if (freqDistData.some((item) => item[1]==num)){
+                console.log('hit')
+            } else {freqDistData.push(outputArray)
+            }
+        }))
+        freqDistData.sort((a,b) => {
+            if (a[0] < b[0]) return 1
+            if (a[0] > b[0]) return -1
+            return 0
+        })
+        freqDistData.map((item) => {
+            item[0] = item[0].toFixed(1)
+        })
+        
+        return freqDistData
     }
 }
 
@@ -140,4 +163,4 @@ console.log('Mode: ', statistics.mode()) // {'mode': 26, 'count': 5}
 console.log('Variance: ',statistics.var()) // 17.5
 console.log('Standard Deviation: ', statistics.std()) // 4.2
 //console.log('Variance: ',statistics.var()) // 17.5
-//console.log('Frequency Distribution: ',statistics.freqDist()) # [(20.0, 26), (16.0, 27), (12.0, 32), (8.0, 37), (8.0, 34), (8.0, 33), (8.0, 31), (8.0, 24), (4.0, 38), (4.0, 29), (4.0, 25)]
+console.log('Frequency Distribution: ',statistics.freqDist()) // [(20.0, 26), (16.0, 27), (12.0, 32), (8.0, 37), (8.0, 34), (8.0, 33), (8.0, 31), (8.0, 24), (4.0, 38), (4.0, 29), (4.0, 25)]
