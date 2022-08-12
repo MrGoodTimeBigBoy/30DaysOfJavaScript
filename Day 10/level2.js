@@ -10,3 +10,9 @@ let B = new Set(b)
 let d = a.filter((num) => B.has(num))
 let D = new Set(d)
 console.log(D)
+
+//3
+let A = new Set(a)
+let e = c.filter((num) =>!D.has(num))
+let E = new Set(e)
+console.log(E)
